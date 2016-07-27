@@ -16,5 +16,29 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            print("Initialized!");
+        }
+
+        private void print(string message)
+        {
+            int maxLines = 24;
+            var lines = textBox1.Lines;
+            var linesToSkip = lines.Length - maxLines;
+            if (linesToSkip > 0)
+            {
+                var newLines = lines.Skip(linesToSkip);
+                textBox1.Lines = newLines.ToArray();
+            }
+            textBox1.AppendText(message + "\r\n");
+        }
+    }
+
+
+    class IrcClient
+    {
+        
     }
 }
